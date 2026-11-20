@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0F0F11">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="زیگورات">
+<title>راهنمای سایز زیگورات</title>
+<style>@font-face{font-family:'Vazirmatn';font-weight:100 900;font-display:swap;src:url(vazirmatn.ttf) format('truetype')}
+@font-face{font-family:'Changa';font-weight:100 900;font-display:swap;src:url(changa.ttf) format('truetype')}</style>
+
+</head>
+<body>
+<a href="./" class="homelink" aria-label="بازگشت به صفحهٔ اصلی">‹ ابزارها</a>
+<style>.homelink{position:absolute;top:max(8px,env(safe-area-inset-top,0px));left:10px;z-index:30;font:700 13px Vazirmatn,ZEstedad,Tahoma,sans-serif;color:#0f0f11;background:#fff;border:1px solid #ddd;border-radius:999px;padding:5px 11px;text-decoration:none}</style>
+<style>
+/* Layout: one narrow RTL column — product picker, the table you type into, then the branded preview and the export buttons. */
+:root{
+  --bg:#F6F6F4; --surface:#FFFFFF; --ink:#0F0F11; --muted:#6C6C74; --line:#E3E3E7; --soft:#EFEFF1; --red:#E2232D; --red-ink:#FFFFFF;
+  --f-ui:"Vazirmatn",Tahoma,system-ui,sans-serif; --f-mark:"Changa","Vazirmatn",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111113;--surface:#1A1A1D;--ink:#F2F2F3;--muted:#A0A0A8;--line:#2B2B30;--soft:#232327;--red:#FF3D47;--red-ink:#FFFFFF;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#111113;--surface:#1A1A1D;--ink:#F2F2F3;--muted:#A0A0A8;--line:#2B2B30;--soft:#232327;--red:#FF3D47;--red-ink:#FFFFFF;color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.7;direction:rtl;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-top:max(20px,env(safe-area-inset-top,0px));padding-bottom:max(48px,env(safe-area-inset-bottom,0px))}
+.wrap{max-width:760px;margin:0 auto;display:grid;gap:18px}
+header{display:flex;align-items:center;gap:12px}
+header img{height:44px;width:auto}
+header h1{font-size:22px;font-weight:900;margin:0;line-height:1.3}
+header p{margin:0;color:var(--muted);font-size:13px}
+.dot{display:inline-block;width:.42em;height:.42em;border-radius:50%;background:var(--red);margin-inline-start:.25em;vertical-align:.05em}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:14px;min-width:0}
+.card h2{margin:0;font-size:16px;font-weight:900;display:flex;align-items:center;gap:8px}
+.card h2 .n{font-family:var(--f-mark);font-size:13px;color:var(--muted);font-weight:600}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.field{display:grid;gap:4px;flex:1 1 180px;min-width:0}
+label{font-size:13px;color:var(--muted);font-weight:500}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 11px;width:100%;min-width:0}
+input:focus-visible,select:focus-visible,button:focus-visible,textarea:focus-visible{outline:2px solid var(--red);outline-offset:1px}
+button{font:inherit;font-weight:700;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:9px 14px;cursor:pointer}
+button.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+button.red{background:var(--red);color:var(--red-ink);border-color:var(--red)}
+button:disabled{opacity:.45;cursor:default}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:6px 12px;border-radius:999px;font-weight:500;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip.add{border-style:dashed;color:var(--muted)}
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table.grid{border-collapse:collapse;width:100%;min-width:420px;font-variant-numeric:tabular-nums}
+.grid th,.grid td{padding:6px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}
+.grid thead th{background:var(--soft);font-size:13px;font-weight:700;white-space:nowrap}
+.grid th.sz{font-family:var(--f-mark);font-size:16px;min-width:56px}
+.grid input{text-align:center;padding:7px 4px;min-width:58px;direction:ltr}
+.grid input.txt{direction:rtl;min-width:110px}
+.grid tr.step td{background:var(--soft)}
+.grid tr.step input{border-style:dashed;font-size:13px}
+.badge{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--ink);color:var(--bg);font-family:var(--f-mark);font-size:12px;margin-inline-end:4px}
+.hint{font-size:13px;color:var(--muted);margin:0}
+.toggles{display:flex;flex-wrap:wrap;gap:8px}
+.toggles label{display:flex;align-items:center;gap:6px;color:var(--ink);font-size:14px;border:1px solid var(--line);border-radius:999px;padding:4px 12px;cursor:pointer}
+.toggles input{width:auto}
+.preview{display:grid;gap:12px;justify-items:center}
+.preview canvas{width:100%;max-width:340px;height:auto;border-radius:12px;border:1px solid var(--line);background:#fff}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:3px}
+.seg button{border:0;border-radius:999px;padding:6px 14px;font-weight:500}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;width:100%}
+.status{font-size:13px;color:var(--muted);min-height:1.5em;margin:0}
+.status.err{color:var(--red)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:grid;place-items:center;z-index:20;
+  padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.modal .box{background:var(--surface);border-radius:14px;padding:14px;display:grid;gap:10px;max-width:420px;width:100%;max-height:100%;overflow:auto}
+.modal img{width:100%;border-radius:8px;border:1px solid var(--line)}
+textarea.out{direction:rtl;min-height:140px;font-size:13px}
+.btnlike{position:relative;overflow:hidden;font-weight:700;font-size:15px;color:var(--ink);border-radius:10px;border:1px solid var(--line);background:var(--surface);padding:9px 14px;cursor:pointer}
+.btnlike input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.danger{color:var(--red);border-color:transparent;background:transparent;padding-inline:4px}
+@media (prefers-reduced-motion:no-preference){button{transition:background .15s,color .15s}}
+</style>
+
+<div class="wrap">
+  <header>
+    <img id="logo" alt="ز">
+    <div>
+      <h1>راهنمای سایز<span class="dot"></span></h1>
+      <p>نوع محصول رو انتخاب کن، عددها رو بنویس، عکس استوری و پست تحویل بگیر.</p>
+    </div>
+  </header>
+
+  <section class="card" aria-labelledby="h-prod">
+    <h2 id="h-prod"><span class="n">01</span> محصول</h2>
+    <div class="field"><label for="search">جستجو با کد یا اسم</label><input id="search" placeholder="مثلاً ZG-012 یا جین"></div>
+    <div class="chips" id="prodList" role="list"></div>
+    <div class="row">
+      <div class="field"><label for="pName">اسم محصول</label><input id="pName" placeholder="مثلاً جین بگ دوخت‌دار"></div>
+      <div class="field" style="flex:0 1 130px"><label for="pCode">کد محصول</label><input id="pCode" dir="ltr"></div>
+      <div class="field"><label for="pCat">نوع</label><select id="pCat"></select></div>
+      <div class="field"><label for="pForm">فرم لباس</label><select id="pForm"><option value="">انتخاب نشده</option><option value="0">جذب</option><option value="1">استاندارد</option><option value="2">گشاد</option><option value="3">اورسایز</option></select></div>
+    </div>
+    <div class="field"><label for="pSizes">سایزها (با فاصله یا ویرگول جدا کن)</label><input id="pSizes" dir="ltr" style="text-align:right"></div>
+    <div class="toggles" id="colToggles" aria-label="اندازه‌هایی که توی جدول بیاد"></div>
+  </section>
+
+  <section class="card" aria-labelledby="h-tab">
+    <h2 id="h-tab"><span class="n">02</span> اندازه‌ها (سانتی‌متر)</h2>
+    <p class="hint">فقط ردیف اول رو پر کن و «پرکردن خودکار» رو بزن؛ بقیهٔ سایزها با فاصلهٔ ردیف خاکستری حساب می‌شن. بعد هر عددی رو خواستی دستی درست کن.</p>
+    <div class="tablebox"><table class="grid" id="grid"></table></div>
+    <div class="row">
+      <button id="autofill">پرکردن خودکار</button>
+      <button id="clearVals">پاک کردن عددها</button>
+    </div>
+    <div class="field"><label for="pNote">یادداشت پایین جدول (اختیاری)</label><input id="pNote" placeholder="مثلاً: این مدل کمی بزرگ‌تر از معمول کار شده"></div>
+  </section>
+
+  <section class="card" aria-labelledby="h-out">
+    <h2 id="h-out"><span class="n">03</span> خروجی</h2>
+    <div class="preview">
+      <div class="seg" role="group" aria-label="اندازهٔ عکس">
+        <button id="fmtStory" aria-pressed="true">استوری ۹:۱۶</button>
+        <button id="fmtPost" aria-pressed="false">پست و تلگرام ۴:۵</button>
+      </div>
+      <canvas id="cv" width="1080" height="1920" aria-label="پیش‌نمایش راهنمای سایز"></canvas>
+      <div class="actions">
+        <button class="red" id="saveImg">ذخیرهٔ عکس</button>
+        <button id="copyTg">کپی متن تلگرام و واتساپ</button>
+        <button id="copyHtml">کپی جدول سایت</button>
+        <button id="saveCsv">ذخیرهٔ فایل CSV</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="h-fit">
+    <h2 id="h-fit"><span class="n">04</span> سایز مشتری رو پیدا کن</h2>
+    <p class="hint">اندازه‌ای که مشتری از لباس خودش فرستاده رو بنویس (همون روش هایلایت «راهنمای سایز»). نزدیک‌ترین سایز این محصول پیدا می‌شه و جواب دایرکت آماده می‌شه.</p>
+    <div class="seg" role="group" aria-label="روش پیدا کردن سایز"><button id="mMeas" aria-pressed="true">با اندازهٔ لباس</button><button id="mBody" aria-pressed="false">با قد و وزن</button></div>
+    <div class="row" id="finder"></div>
+    <div class="row" id="bodyFinder" hidden>
+      <div class="field" style="flex:1 1 120px"><label for="bH">قد مشتری (سانتی‌متر)</label><input id="bH" inputmode="decimal" dir="ltr"></div>
+      <div class="field" style="flex:1 1 120px"><label for="bW">وزن مشتری (کیلو)</label><input id="bW" inputmode="decimal" dir="ltr"></div>
+    </div>
+    <p id="finderOut" class="hint" style="font-size:15px;color:var(--ink)"></p>
+    <button id="copyReply" hidden>کپی جواب دایرکت</button>
+  </section>
+
+  <div class="row" style="justify-content:space-between">
+    <div class="row"><button class="primary" id="saveProd">ذخیرهٔ محصول</button><button id="dupProd">کپی برای مدل جدید</button></div>
+    <button class="danger" id="delProd">حذف این محصول</button>
+  </div>
+  <p class="status" id="status" role="status"></p>
+  <section class="card" aria-labelledby="h-bk">
+    <h2 id="h-bk"><span class="n">05</span> پشتیبان</h2>
+    <p class="hint">محصول‌ها فقط روی همین گوشی و همین مرورگر ذخیره می‌شن. هر چند وقت یه بار پشتیبان بگیر؛ با همین فایل می‌تونی محصول‌ها رو به گوشی یا کامپیوتر دیگه ببری.</p>
+    <div class="row"><button id="backupOut">گرفتن پشتیبان</button><label class="btnlike">برگردوندن پشتیبان<input type="file" id="backupIn" accept=".json,application/json"></label></div>
+  </section>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="box">
+    <strong id="mTitle"></strong>
+    <p class="hint" id="mHint"></p>
+    <img id="mImg" alt="" hidden>
+    <textarea class="out" id="mText" readonly hidden></textarea>
+    <button id="mClose">بستن</button>
+  </div>
+</div>
+
+<script>
+const ZEH = "data:image/png;base64,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";
+document.getElementById('logo').src = ZEH;
+
+/* ---------- presets ---------- */
+const CATS = {
+  pants:{label:"شلوار (جین، بگ، بالنی)", diagram:"pants", sizes:["30","32","34","36","38"],
+    cols:[{id:"waist",label:"عرض کمر",step:2.5,on:true},{id:"len",label:"قد",step:1,on:true},{id:"stretch",label:"کمر با کشش",step:2.5,on:false},{id:"rise",label:"فاق",step:1,on:false},{id:"thigh",label:"عرض ران",step:1,on:false},{id:"hem",label:"دمپا",step:0.5,on:false}]},
+  tee:{label:"تیشرت، پیراهن، شومیز، باکسی، کراپ", diagram:"tee", sizes:["S","M","L","XL","XXL"],
+    cols:[{id:"chest",label:"عرض زیر بغل",step:2,on:true},{id:"len",label:"قد",step:2,on:true},{id:"shoulder",label:"سرشانه",step:2,on:false},{id:"sleeve",label:"قد آستین",step:1,on:false}]},
+  hoodie:{label:"هودی، دورس، کاپشن، سویشرت", diagram:"hoodie", sizes:["S","M","L","XL","XXL"],
+    cols:[{id:"chest",label:"عرض زیر بغل",step:2,on:true},{id:"len",label:"قد",step:2,on:true},{id:"shoulder",label:"سرشانه",step:2,on:false},{id:"sleeve",label:"قد آستین",step:1.5,on:false}]},
+  shorts:{label:"شلوارک", diagram:"pants", sizes:["30","32","34","36","38"],
+    cols:[{id:"waist",label:"عرض کمر",step:2.5,on:true},{id:"len",label:"قد",step:1,on:true},{id:"stretch",label:"کمر با کشش",step:2.5,on:false},{id:"thigh",label:"عرض ران",step:1,on:false},{id:"hem",label:"دمپا",step:0.5,on:false}]},
+  other:{label:"سایر", diagram:null, sizes:["S","M","L","XL"],
+    cols:[{id:"m1",label:"عرض",step:2,on:true},{id:"m2",label:"قد",step:2,on:true}]}
+};
+const FIT = {id:"fit",label:"وزن پیشنهادی",text:true};
+const LET = "ABCDEFG";
+
+/* ---------- helpers ---------- */
+const $ = id => document.getElementById(id);
+const toLat = s => String(s??"").replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d)).replace(/[٫,]/g,".");
+const toFa = s => String(s??"").replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]).replace(/\./g,"٫");
+const num = s => { const v=parseFloat(toLat(s)); return isFinite(v)?v:null; };
+const fmt = v => { if(v==null||v==="") return ""; const n=num(v); return n==null?String(v):String(Math.round(n*10)/10); };
+const uid = () => "p"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+function setStatus(t,err){const s=$('status');s.textContent=t||"";s.classList.toggle('err',!!err);}
+
+/* ---------- state ---------- */
+function nextCode(){const n=(typeof products!=="undefined"?products:[]).map(p=>parseInt(String(p.code||"").replace(/\D/g,""))||0);return "ZG-"+String((n.length?Math.max(...n):0)+1).padStart(3,"0");}
+function blank(cat="pants"){
+  const c=CATS[cat];
+  return {id:uid(),code:nextCode(),name:"",cat,sizes:[...c.sizes],cols:c.cols.map(x=>({...x})),showFit:true,vals:{},fit:{},steps:Object.fromEntries(c.cols.map(x=>[x.id,x.step])),note:"",updatedAt:0};
+}
+function sample(){
+  const p=blank("pants"); p.id="example"; p.name="جین بگ (نمونه)"; p.code="ZG-000"; p.form="2";
+  const base={waist:40,len:104,stretch:43,rise:30,thigh:33,hem:24};
+  p.sizes.forEach((s,i)=>{p.vals[s]={};p.cols.forEach(c=>p.vals[s][c.id]=String(Math.round((base[c.id]+c.step*i)*10)/10));});
+  p.fit={"30":"۵۵ تا ۶۵","32":"۶۵ تا ۷۵","34":"۷۵ تا ۸۵","36":"۸۵ تا ۹۵","38":"۹۵ تا ۱۰۵"};
+  return p;
+}
+let products=[]; let cur=sample(); let fmtMode="story";  let dirty=false;
+
+/* ---------- product list ---------- */
+function renderList(){
+  const el=$('prodList'); el.innerHTML="";
+  const q=toLat($('search').value).trim().toLowerCase();
+  let all=[...products]; if(!all.find(p=>p.id===cur.id)) all.unshift(cur);
+  if(q) all=all.filter(p=>(p.code||"").toLowerCase().includes(q)||(p.name||"").toLowerCase().includes(q));
+  all.forEach(p=>{const b=document.createElement('button');b.className='chip';b.setAttribute('role','listitem');
+    b.textContent=(p.code?p.code+" · ":"")+(p.name||"بی‌نام");b.setAttribute('aria-pressed',p.id===cur.id);
+    b.onclick=()=>{if(p.id!==cur.id){cur=structuredClone(p);dirty=false;renderAll();}};el.appendChild(b);});
+  const add=document.createElement('button');add.className='chip add';add.textContent="+ محصول جدید";
+  add.onclick=()=>{$('search').value="";cur=blank(cur.cat);dirty=false;renderAll();$('pName').focus();};el.appendChild(add);
+}
+
+/* ---------- editor ---------- */
+function renderCatSelect(){const s=$('pCat');s.innerHTML="";Object.entries(CATS).forEach(([k,v])=>{const o=document.createElement('option');o.value=k;o.textContent=v.label;s.appendChild(o);});}
+function activeCols(){return cur.cols.filter(c=>c.on);}
+function renderToggles(){
+  const t=$('colToggles'); t.innerHTML="";
+  cur.cols.forEach(c=>{const l=document.createElement('label');const i=document.createElement('input');i.type='checkbox';i.checked=c.on;i.id='tg-'+c.id;
+    i.onchange=()=>{c.on=i.checked;touch();renderGrid();renderFinder();draw();};l.append(i,document.createTextNode(c.label));t.appendChild(l);});
+  const l=document.createElement('label');const i=document.createElement('input');i.type='checkbox';i.checked=cur.showFit;i.id='tg-fit';
+  i.onchange=()=>{cur.showFit=i.checked;touch();renderGrid();draw();};l.append(i,document.createTextNode(FIT.label));t.appendChild(l);
+}
+function renderGrid(){
+  const g=$('grid'); const cols=activeCols(); let h="<thead><tr><th>سایز</th>";
+  cols.forEach((c,i)=>h+=`<th><span class="badge">${LET[i]}</span>${c.label}</th>`);
+  if(cur.showFit) h+=`<th>${FIT.label} (کیلو)</th>`;
+  h+="</tr></thead><tbody>";
+  cur.sizes.forEach((s,ri)=>{h+=`<tr><th class="sz" scope="row">${s}</th>`;
+    cols.forEach(c=>h+=`<td><input inputmode="decimal" id="v-${ri}-${c.id}" data-s="${s}" data-c="${c.id}" value="${(cur.vals[s]||{})[c.id]??""}" aria-label="${c.label} سایز ${s}"></td>`);
+    if(cur.showFit) h+=`<td><input class="txt" id="f-${ri}" data-fit="${s}" value="${cur.fit[s]??""}" aria-label="وزن پیشنهادی سایز ${s}" placeholder="مثلاً ۶۵ تا ۷۵"></td>`;
+    h+="</tr>";});
+  h+=`<tr class="step"><th style="font-size:12px;color:var(--muted)">فاصله هر سایز</th>`;
+  cols.forEach(c=>h+=`<td><input inputmode="decimal" id="st-${c.id}" data-step="${c.id}" value="${cur.steps[c.id]??c.step}" aria-label="فاصلهٔ ${c.label}"></td>`);
+  if(cur.showFit) h+="<td></td>"; h+="</tr></tbody>";
+  g.innerHTML=h;
+  g.querySelectorAll('input').forEach(inp=>inp.addEventListener('input',()=>{
+    if(inp.dataset.step){cur.steps[inp.dataset.step]=toLat(inp.value);}
+    else if(inp.dataset.fit){cur.fit[inp.dataset.fit]=inp.value;}
+    else {const s=inp.dataset.s,c=inp.dataset.c;(cur.vals[s]??={})[c]=toLat(inp.value);}
+    touch();draw();}));
+}
+function renderAll(){
+  $('pName').value=cur.name; $('pCode').value=cur.code||""; $('pForm').value=cur.form??""; $('pCat').value=cur.cat; $('pSizes').value=cur.sizes.join("  "); $('pNote').value=cur.note||"";
+  renderList();renderToggles();renderGrid();renderFinder();draw();
+  $('delProd').hidden=!products.find(p=>p.id===cur.id);
+}
+function renderFinder(){
+  const f=$('finder'); const keep={}; f.querySelectorAll('input').forEach(i=>keep[i.dataset.c]=i.value); f.innerHTML="";
+  activeCols().forEach(c=>{const d=document.createElement('div');d.className='field';d.style.flex='1 1 120px';
+    d.innerHTML=`<label for="fd-${c.id}">${c.label}</label><input id="fd-${c.id}" data-c="${c.id}" inputmode="decimal" dir="ltr">`;
+    const i=d.querySelector('input'); i.value=keep[c.id]||""; i.addEventListener('input',findSize); f.appendChild(d);});
+  findSize();
+}
+let lastReply="";
+function findSize(){
+  if(typeof finderMode!=="undefined"&&finderMode==="body")return findBody();
+  const ins=[...$('finder').querySelectorAll('input')].map(i=>({c:i.dataset.c,v:num(i.value)})).filter(x=>x.v!=null);
+  const out=$('finderOut'); $('copyReply').hidden=true; if(!ins.length){out.textContent="";return;}
+  let best=null;
+  cur.sizes.forEach(s=>{const v=cur.vals[s]||{};let d=0,k=0;ins.forEach(x=>{const m=num(v[x.c]);if(m!=null){d+=Math.abs(m-x.v);k++;}});if(k&&(!best||d/k<best.d))best={s,d:d/k};});
+  if(!best){out.textContent="اول اندازه‌های جدول رو پر کن.";return;}
+  const fa=x=>/^\d+$/.test(x)?toFa(x):x; const det=ins.map(x=>{const c=cur.cols.find(c=>c.id===x.c);return `${c.label} ${toFa(fmt(x.v))}`;}).join("، ");
+  out.innerHTML=`سایز پیشنهادی: <strong style="font-size:20px">${fa(best.s)}</strong>`+(best.d>2?` <span style="color:var(--red)">(فاصله زیاده؛ بهتره بیشتر بپرسی)</span>`:"");
+  lastReply=`سلام، وقتتون بخیر 🙏\nبا اندازه‌هایی که فرستادید (${det})، سایز ${fa(best.s)} از «${cur.name||"این محصول"}» براتون مناسبه.${cur.code?"\nکد محصول: "+cur.code:""}\nاگه سؤالی بود در خدمتیم 🔴`;
+  $('copyReply').hidden=false;
+}
+let finderMode="meas";
+$('mMeas').onclick=()=>{finderMode="meas";$('mMeas').setAttribute('aria-pressed',true);$('mBody').setAttribute('aria-pressed',false);$('finder').hidden=false;$('bodyFinder').hidden=true;findSize();};
+$('mBody').onclick=()=>{finderMode="body";$('mBody').setAttribute('aria-pressed',true);$('mMeas').setAttribute('aria-pressed',false);$('finder').hidden=true;$('bodyFinder').hidden=false;findSize();};
+['bH','bW'].forEach(id=>$(id).addEventListener('input',findSize));
+function range(t){const m=toLat(t).match(/(\d+(?:\.\d+)?)\D+(\d+(?:\.\d+)?)/);if(m)return [ +m[1], +m[2] ].sort((a,b)=>a-b);const one=num(t);return one==null?null:[one,one];}
+function findBody(){
+  const out=$('finderOut'); const h=num($('bH').value), w=num($('bW').value); $('copyReply').hidden=true;
+  if(w==null){out.textContent=h!=null?"وزن رو هم بنویس؛ سایز بر اساس وزن پیشنهاد می‌شه.":"";return;}
+  const rs=cur.sizes.map(s=>({s,r:range(cur.fit[s]||"")})).filter(x=>x.r);
+  if(!rs.length){out.textContent="ستون «وزن پیشنهادی» این محصول خالیه؛ اول پرش کن.";return;}
+  const fa=x=>/^\d+$/.test(x)?toFa(x):x; const hits=rs.filter(x=>w>=x.r[0]&&w<=x.r[1]);
+  let pick,warn="";
+  if(hits.length===1)pick=hits[0].s;
+  else if(hits.length>1){pick=hits[hits.length-1].s;warn=`بین ${hits.map(x=>fa(x.s)).join(" و ")}؛ برای راحتی بزرگ‌تر پیشنهاد شد.`;}
+  else{const d=rs.map(x=>({s:x.s,d:Math.min(Math.abs(w-x.r[0]),Math.abs(w-x.r[1]))})).sort((a,b)=>a.d-b.d);pick=d[0].s;warn="وزن بیرون از بازه‌های جدوله؛ بهتره اندازهٔ لباسش رو هم بپرسی.";}
+  const tall=h!=null&&cur.cat==="pants"&&h>=185?" قدتون بلنده؛ قد شلوار رو توی جدول چک کنید.":"";
+  out.innerHTML=`سایز پیشنهادی: <strong style="font-size:20px">${fa(pick)}</strong>`+(warn?` <span style="color:var(--red)">(${warn})</span>`:"");
+  const det=[h!=null?`قد ${toFa(fmt(h))}`:null,`وزن ${toFa(fmt(w))}`].filter(Boolean).join(" و ");
+  lastReply=`سلام، وقتتون بخیر 🙏\nبا ${det}، سایز ${fa(pick)} از «${cur.name||"این محصول"}» براتون مناسبه.${tall}${cur.code?"\nکد محصول: "+cur.code:""}\nاگه سؤالی بود در خدمتیم 🔴`;
+  $('copyReply').hidden=false;
+}
+$('copyReply').onclick=()=>copy(lastReply,"جواب دایرکت");
+function touch(){dirty=true;setStatus("تغییرات ذخیره نشده");}
+$('pName').addEventListener('input',e=>{cur.name=e.target.value;touch();draw();});
+$('search').addEventListener('input',renderList);
+$('pForm').addEventListener('change',e=>{cur.form=e.target.value;touch();draw();});
+$('pCode').addEventListener('input',e=>{cur.code=toLat(e.target.value).toUpperCase();touch();draw();});
+$('pNote').addEventListener('input',e=>{cur.note=e.target.value;touch();draw();});
+$('pCat').addEventListener('change',e=>{
+  const k=e.target.value,c=CATS[k];const hasVals=Object.keys(cur.vals).length>0;
+  cur.cat=k;cur.cols=c.cols.map(x=>({...x}));cur.steps=Object.fromEntries(c.cols.map(x=>[x.id,x.step]));
+  if(!hasVals) cur.sizes=[...c.sizes];
+  touch();renderAll();});
+$('pSizes').addEventListener('change',e=>{
+  const list=toLat(e.target.value).split(/[\s,،]+/).map(s=>s.trim().toUpperCase()).filter(Boolean);
+  if(list.length){cur.sizes=[...new Set(list)];touch();renderGrid();draw();}});
+$('autofill').onclick=()=>{
+  const first=cur.sizes[0]; const base=cur.vals[first]||{}; let filled=0;
+  activeCols().forEach(c=>{const b=num(base[c.id]);const st=num(cur.steps[c.id])??0;if(b==null)return;
+    cur.sizes.forEach((s,i)=>{if(i===0)return;(cur.vals[s]??={})[c.id]=String(Math.round((b+st*i)*10)/10);});filled++;});
+  if(!filled){setStatus("اول عددهای سایز "+first+" رو بنویس.",true);return;}
+  touch();renderGrid();draw();setStatus("سایزهای بعدی پر شد؛ اگه جایی فرق داره دستی درستش کن.");};
+$('clearVals').onclick=()=>{cur.vals={};touch();renderGrid();draw();};
+
+/* ---------- canvas ---------- */
+const INK="#0F0F11", RED="#E2232D", MUTE="#8A8A92", ROW="#F3F3F5", LINE="#E2E2E6";
+const logoImg=new Image(); logoImg.src=ZEH; logoImg.onload=()=>draw();
+function P(box,x,y){return [box.x+x/100*box.w, box.y+y/100*box.h];}
+function poly(ctx,box,pts,close=true){ctx.beginPath();pts.forEach((p,i)=>{const [x,y]=P(box,...p);i?ctx.lineTo(x,y):ctx.moveTo(x,y);});if(close)ctx.closePath();ctx.stroke();}
+function measure(ctx,box,a,b,letter,lw){
+  const [x1,y1]=P(box,...a),[x2,y2]=P(box,...b);
+  ctx.save();ctx.strokeStyle=RED;ctx.lineWidth=lw*0.6;ctx.setLineDash([lw*1.6,lw*1.2]);
+  ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();ctx.setLineDash([]);
+  const ang=Math.atan2(y2-y1,x2-x1),t=lw*2.2;
+  [[x1,y1],[x2,y2]].forEach(([x,y])=>{ctx.beginPath();ctx.moveTo(x-Math.sin(ang)*t,y+Math.cos(ang)*t);ctx.lineTo(x+Math.sin(ang)*t,y-Math.cos(ang)*t);ctx.stroke();});
+  if(letter){const mx=(x1+x2)/2,my=(y1+y2)/2,r=lw*3.4;ctx.fillStyle=INK;ctx.beginPath();ctx.arc(mx,my,r,0,7);ctx.fill();
+    ctx.fillStyle="#fff";ctx.font=`700 ${r*1.15}px Changa, Vazirmatn, sans-serif`;ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(letter,mx,my+r*0.05);}
+  ctx.restore();
+}
+function drawDiagram(ctx,kind,box,lw){
+  if(!kind)return; ctx.save();ctx.strokeStyle=INK;ctx.lineWidth=lw;ctx.lineJoin="round";ctx.lineCap="round";
+  const cols=activeCols().map(c=>c.id); const L=id=>{const i=cols.indexOf(id);return i<0?null:LET[i];};
+  if(kind==="pants"){
+    poly(ctx,box,[[25,6],[75,6],[88,96],[58,96],[50,34],[42,96],[12,96]]);
+    poly(ctx,box,[[25,13],[75,13]],false);
+    if(L("waist"))measure(ctx,box,[25,-2],[75,-2],L("waist"),lw);
+    if(L("len"))measure(ctx,box,[97,6],[103,96],L("len"),lw);
+    if(L("rise"))measure(ctx,box,[50,13],[50,33],L("rise"),lw);
+    if(L("thigh"))measure(ctx,box,[21,42],[47,42],L("thigh"),lw);
+    if(L("hem"))measure(ctx,box,[12,103],[42,103],L("hem"),lw);
+  }else{
+    const hood=kind==="hoodie";
+    const pts=hood?[[36,6],[16,12],[6,32],[0,88],[12,90],[22,42],[22,96],[78,96],[78,42],[88,90],[100,88],[94,32],[84,12],[64,6]]
+                  :[[36,6],[14,14],[2,36],[16,43],[22,36],[22,96],[78,96],[78,36],[84,43],[98,36],[86,14],[64,6]];
+    ctx.beginPath();pts.forEach((p,i)=>{const [x,y]=P(box,...p);i?ctx.lineTo(x,y):ctx.moveTo(x,y);});
+    const [cx,cy]=P(box,50,17),[ex,ey]=P(box,36,6);ctx.quadraticCurveTo(cx,cy,ex,ey);ctx.closePath();ctx.stroke();
+    if(L("shoulder"))measure(ctx,box,[16,0],[84,0],L("shoulder"),lw);
+    if(L("chest"))measure(ctx,box,[23,46],[77,46],L("chest"),lw);
+    if(L("len"))measure(ctx,box,[31,8],[31,95],L("len"),lw);
+    if(L("sleeve"))hood?measure(ctx,box,[91,8],[106,86],L("sleeve"),lw):measure(ctx,box,[91,9],[104,32],L("sleeve"),lw);
+  }
+  ctx.restore();
+}
+function rtlText(ctx,t,x,y,font,color,align="right"){ctx.save();ctx.direction="rtl";ctx.font=font;ctx.fillStyle=color;ctx.textAlign=align;ctx.textBaseline="alphabetic";ctx.fillText(t,x,y);ctx.restore();}
+function draw(){
+  const cv=$('cv'),W=1080,H=fmtMode==="story"?1920:1350; cv.width=W;cv.height=H; const ctx=cv.getContext('2d');
+  ctx.fillStyle="#fff";ctx.fillRect(0,0,W,H);
+  const story=fmtMode==="story"; const top=story?250:90; const R=980,Lx=100;
+  // header
+  if(logoImg.complete&&logoImg.naturalWidth){const h=story?96:80,w=logoImg.naturalWidth*h/logoImg.naturalHeight;ctx.drawImage(logoImg,R-w,top-h+14,w,h);}
+  ctx.save();ctx.font="700 34px Changa, sans-serif";ctx.fillStyle=INK;ctx.textAlign="left";ctx.fillText("ZIGORAT",Lx,top-20);
+  ctx.font="500 20px ui-monospace, Menlo, monospace";ctx.fillStyle=MUTE;ctx.fillText("SIZE GUIDE",Lx,top+12);ctx.restore();
+  const titleY=top+(story?150:120);
+  ctx.save();ctx.direction="rtl";ctx.font="900 92px Vazirmatn";ctx.fillStyle=INK;ctx.textAlign="right";ctx.fillText("راهنمای سایز",R,titleY);
+  const tw=ctx.measureText("راهنمای سایز").width;ctx.fillStyle=RED;ctx.beginPath();ctx.arc(R-tw-32,titleY-14,15,0,7);ctx.fill();ctx.restore();
+  rtlText(ctx,cur.name||"اسم محصول",R,titleY+70,"700 46px Vazirmatn",cur.name?"#3A3A40":"#B5B5BC");
+  if(cur.code){ctx.save();ctx.font="500 26px ui-monospace, Menlo, monospace";ctx.fillStyle=MUTE;ctx.textAlign="left";ctx.fillText(cur.code,Lx,titleY+66);ctx.restore();}
+  // fit bar
+  let y=titleY+(story?130:110);
+  if(cur.form!==undefined&&cur.form!==""){const labels=["جذب","استاندارد","گشاد","اورسایز"],sel=+cur.form;const bw=story?560:500,bx=R-bw,by=y+(story?30:16);
+    ctx.save();ctx.strokeStyle=LINE;ctx.lineWidth=6;ctx.lineCap="round";ctx.beginPath();ctx.moveTo(bx,by);ctx.lineTo(R,by);ctx.stroke();
+    labels.forEach((l,i)=>{const x=R-i*bw/3;ctx.fillStyle=i===sel?RED:"#CFCFD5";ctx.beginPath();ctx.arc(x,by,i===sel?16:8,0,7);ctx.fill();
+      rtlText(ctx,l,x,by+(story?52:44),`${i===sel?"700":"500"} ${story?28:24}px Vazirmatn`,i===sel?INK:MUTE,"center");});
+    rtlText(ctx,"فرم:",bx-40,by+12,`700 ${story?28:24}px Vazirmatn`,MUTE,"right");ctx.restore();y+=story?110:80;}
+  // diagram
+  const kind=CATS[cur.cat]?.diagram;
+  if(kind){const dh=story?(cur.form?340:400):(cur.form?200:250),dw=dh*(kind==="pants"?0.62:0.82);drawDiagram(ctx,kind,{x:W/2-dw/2,y:y+20,w:dw,h:dh},story?7:5.5);y+=dh+(story?90:70);}
+  // table
+  const cols=activeCols(); const head=["سایز",...cols.map((c,i)=>LET[i]+"|"+c.label)]; if(cur.showFit)head.push("FIT|وزن (کیلو)");
+  const n=head.length; const tblW=R-Lx; const sizeW=tblW*(n>5?0.13:0.16); const fitW=cur.showFit?tblW*0.2:0; const cw=(tblW-sizeW-fitW)/Math.max(1,cols.length);
+  const xs=[]; let x=R; xs.push([x-sizeW,x]); x-=sizeW; cols.forEach(()=>{xs.push([x-cw,x]);x-=cw;}); if(cur.showFit)xs.push([x-fitW,x]);
+  const rh=story?Math.min(96,(H-y-330)/(cur.sizes.length+1)):Math.min(78,(H-y-170)/(cur.sizes.length+1.1));
+  const hh=rh*1.15;
+  ctx.fillStyle=INK;roundRect(ctx,Lx,y,tblW,hh,14);ctx.fill();
+  head.forEach((h,i)=>{const [a,b]=xs[i];const cx=(a+b)/2;const parts=h.split("|");
+    if(parts.length===2){const fs=Math.min(30,cw/5.2);
+      if(parts[0]!=="FIT"){ctx.save();ctx.fillStyle=RED;ctx.beginPath();ctx.arc(cx,y+hh*0.3,fs*0.55,0,7);ctx.fill();ctx.fillStyle="#fff";ctx.font=`700 ${fs*0.8}px Changa`;ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(parts[0],cx,y+hh*0.3+1);ctx.restore();
+        rtlText(ctx,parts[1],cx,y+hh*0.82,`700 ${fs}px Vazirmatn`,"#fff","center");}
+      else rtlText(ctx,parts[1],cx,y+hh*0.62,`700 ${Math.min(28,fitW/7)}px Vazirmatn`,"#fff","center");}
+    else rtlText(ctx,h,cx,y+hh*0.62,"700 32px Vazirmatn","#fff","center");});
+  y+=hh;
+  cur.sizes.forEach((s,ri)=>{if(ri%2===1){ctx.fillStyle=ROW;ctx.fillRect(Lx,y,tblW,rh);}
+    const v=cur.vals[s]||{};
+    ctx.save();ctx.font=`700 ${rh*0.42}px Changa, Vazirmatn`;ctx.fillStyle=INK;ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(/^\d+$/.test(s)?toFa(s):s,(xs[0][0]+xs[0][1])/2,y+rh/2+2);ctx.restore();
+    cols.forEach((c,ci)=>{const [a,b]=xs[ci+1];const t=fmt(v[c.id]);ctx.save();ctx.font=`500 ${rh*0.42}px Vazirmatn`;ctx.fillStyle=t?INK:"#C9C9CF";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(t?toFa(t):"–",(a+b)/2,y+rh/2+2);ctx.restore();});
+    if(cur.showFit){const [a,b]=xs[xs.length-1];const t=cur.fit[s]||"";rtlText(ctx,t?toFa(toLat(t)):"–",(a+b)/2,y+rh*0.63,`500 ${Math.min(rh*0.34,fitW/6.5)}px Vazirmatn`,t?"#3A3A40":"#C9C9CF","center");}
+    ctx.strokeStyle=LINE;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(Lx,y+rh);ctx.lineTo(R,y+rh);ctx.stroke();y+=rh;});
+  // footer
+  y+=story?60:46;
+  rtlText(ctx,"اندازه‌ها به سانتی‌متر؛ لباس صاف روی زمین اندازه گرفته شده.",R,y,`500 ${story?30:26}px Vazirmatn`,MUTE);
+  if(cur.note){y+=story?50:40;rtlText(ctx,cur.note,R,y,`500 ${story?30:26}px Vazirmatn`,"#3A3A40");}
+  y+=story?70:52;
+  ctx.save();ctx.direction="rtl";ctx.font=`700 ${story?36:30}px Vazirmatn`;ctx.fillStyle=INK;ctx.textAlign="right";const q="بین دو سایز موندی؟ دایرکت بده";ctx.fillText(q,R,y);
+  const qw=ctx.measureText(q).width;ctx.fillStyle=RED;ctx.beginPath();ctx.arc(R-qw-20,y-11,8,0,7);ctx.fill();ctx.restore();
+}
+function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
+
+/* ---------- exports ---------- */
+function slug(){return (cur.name||"size-guide").replace(/[^\p{L}\p{N}]+/gu,"-").slice(0,40);}
+function tgText(){
+  const cols=activeCols(); let t=`🔴 راهنمای سایز — ${cur.name||""}${cur.code?"\nکد محصول: "+cur.code:""}${cur.form?"\nفرم: "+["جذب","استاندارد","گشاد","اورسایز"][+cur.form]:""}\n\n`;
+  cur.sizes.forEach(s=>{const v=cur.vals[s]||{};const parts=cols.map(c=>fmt(v[c.id])?`${c.label} ${toFa(fmt(v[c.id]))}`:null).filter(Boolean);
+    let line=`▫️ سایز ${/^\d+$/.test(s)?toFa(s):s}: ${parts.join(" | ")}`; if(cur.showFit&&cur.fit[s])line+=` (وزن ${toFa(toLat(cur.fit[s]))} کیلو)`; t+=line+"\n";});
+  t+="\nاندازه‌ها به سانتی‌متر؛ لباس صاف روی زمین اندازه گرفته شده.\n"; if(cur.note)t+=cur.note+"\n"; t+="بین دو سایز موندی؟ دایرکت بده 🔴";
+  return t;
+}
+function htmlTable(){
+  const cols=activeCols(); const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  let h=`<table class="size-guide" dir="rtl">\n  <caption>راهنمای سایز ${esc(cur.name)} (سانتی‌متر)</caption>\n  <thead><tr><th>سایز</th>${cols.map(c=>`<th>${esc(c.label)}</th>`).join("")}${cur.showFit?`<th>${FIT.label}</th>`:""}</tr></thead>\n  <tbody>\n`;
+  cur.sizes.forEach(s=>{const v=cur.vals[s]||{};h+=`    <tr><th>${esc(s)}</th>${cols.map(c=>`<td>${esc(fmt(v[c.id]))}</td>`).join("")}${cur.showFit?`<td>${esc(cur.fit[s]||"")}</td>`:""}</tr>\n`;});
+  return h+"  </tbody>\n</table>";
+}
+function csv(){
+  const cols=activeCols(); const q=s=>`"${String(s??"").replace(/"/g,'""')}"`;
+  const rows=[["سایز",...cols.map(c=>c.label),...(cur.showFit?[FIT.label]:[])]];
+  cur.sizes.forEach(s=>{const v=cur.vals[s]||{};rows.push([s,...cols.map(c=>fmt(v[c.id])),...(cur.showFit?[cur.fit[s]||""]:[])]);});
+  return "﻿"+rows.map(r=>r.map(q).join(",")).join("\n");
+}
+function showModal(title,hint,{img,text}={}){
+  $('mTitle').textContent=title;$('mHint').textContent=hint;
+  $('mImg').hidden=!img; if(img)$('mImg').src=img; $('mText').hidden=text==null; if(text!=null)$('mText').value=text;
+  $('modal').hidden=false; if(text!=null){$('mText').focus();$('mText').select();}
+}
+$('mClose').onclick=()=>{$('modal').hidden=true;};
+async function copy(text,what){
+  try{await navigator.clipboard.writeText(text);setStatus(what+" کپی شد.");}
+  catch{showModal(what,"متن رو انتخاب کن و کپی کن.",{text});}
+}
+$('copyTg').onclick=()=>copy(tgText(),"متن تلگرام");
+$('copyHtml').onclick=()=>copy(htmlTable(),"جدول سایت");
+
+/* ذخیرهٔ فایل بدون برنامهٔ کلود: گوشی = منوی اشتراک (ذخیره در گالری)، کامپیوتر = دانلود مستقیم */
+const IS_TOUCH = matchMedia('(pointer:coarse)').matches;
+async function saveFile(filename, data, type){
+  const blob = data instanceof Blob ? data : new Blob([data], {type: type||'application/octet-stream'});
+  if (IS_TOUCH && navigator.canShare) {
+    try { const f = new File([blob], filename, {type: blob.type||type});
+      if (navigator.canShare({files:[f]})) { await navigator.share({files:[f]}); return 'shared'; } }
+    catch (e) { if (e && e.name === 'AbortError') return 'cancelled'; }
+  }
+  try { const u = URL.createObjectURL(blob), a = document.createElement('a'); a.href = u; a.download = filename;
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 30000); return 'downloaded'; }
+  catch (e) { return 'failed'; }
+}
+async function save(filename,data,fallbackImg,type){
+  const r=await saveFile(filename,data,type);
+  if(r==='shared'){setStatus("آماده شد؛ «Save Image» یا «ذخیره» رو بزن.");return;}
+  if(r==='cancelled'){setStatus("ذخیره لغو شد.");return;}
+  if(r==='downloaded'){setStatus(fallbackImg?"دانلود شد. اگه دانلود نشد، دوباره بزن.":"فایل دانلود شد.");return;}
+  if(fallbackImg) showModal("عکس آماده‌ست","انگشتت رو روی عکس نگه دار و «ذخیره» رو بزن.",{img:fallbackImg});
+  else showModal("فایل CSV","این متن رو کپی کن و توی یه فایل با پسوند csv بذار.",{text:data});
+}
+$('saveImg').onclick=()=>{const cv=$('cv');cv.toBlob(b=>{save(`${slug()}-${fmtMode==="story"?"story":"post"}.png`,b,cv.toDataURL("image/png"),"image/png");},"image/png");};
+$('saveCsv').onclick=()=>save(`${slug()}.csv`,csv(),null,'text/csv;charset=utf-8');
+$('fmtStory').onclick=()=>{fmtMode="story";$('fmtStory').setAttribute('aria-pressed',true);$('fmtPost').setAttribute('aria-pressed',false);draw();};
+$('fmtPost').onclick=()=>{fmtMode="post";$('fmtPost').setAttribute('aria-pressed',true);$('fmtStory').setAttribute('aria-pressed',false);draw();};
+
+/* ---------- storage ---------- */
+const LS="zig-size-guide-v1";
+function lsLoad(){try{return JSON.parse(localStorage.getItem(LS)||"[]");}catch{return [];}}
+function lsSave(){try{localStorage.setItem(LS,JSON.stringify(products));return true;}catch{setStatus("ذخیره روی این دستگاه نشد؛ حالت خصوصی مرورگر رو خاموش کن.",true);return false;}}
+$('saveProd').onclick=()=>{
+  if(!cur.name.trim()){setStatus("اول اسم محصول رو بنویس.",true);$('pName').focus();return;}
+  if(cur.id==="example")cur.id=uid();
+  cur.updatedAt=Date.now(); const body=structuredClone(cur);
+  const i=products.findIndex(p=>p.id===cur.id); i<0?products.unshift(body):products[i]=body; dirty=false; renderList(); $('delProd').hidden=false;
+  lsSave();setStatus("روی همین دستگاه ذخیره شد. برای انتقال به گوشی دیگه «پشتیبان» بگیر.");
+};
+$('dupProd').onclick=()=>{
+  const c=structuredClone(cur); c.id=uid(); c.code=nextCode(); c.name=(cur.name||"")+" (کپی)"; c.updatedAt=0; cur=c; dirty=true;
+  renderAll(); $('pName').focus(); $('pName').select(); setStatus("کپی ساخته شد؛ اسم و کد رو عوض کن، عددهای متفاوت رو درست کن و ذخیره کن.");
+};
+$('delProd').onclick=async()=>{
+  const b=$('delProd'); if(b.dataset.armed!=="1"){b.dataset.armed="1";b.textContent="مطمئنی؟ دوباره بزن";setTimeout(()=>{b.dataset.armed="";b.textContent="حذف این محصول";},3000);return;}
+  b.dataset.armed="";b.textContent="حذف این محصول"; const id=cur.id;
+  products=products.filter(p=>p.id!==id); cur=products[0]?structuredClone(products[0]):sample(); renderAll();
+  lsSave();setStatus("حذف شد.");
+};
+
+/* ---------- boot ---------- */
+renderCatSelect(); products=lsLoad(); if(products[0])cur=structuredClone(products[0]); renderAll();
+(document.fonts?document.fonts.load('900 40px Vazirmatn').then(()=>document.fonts.load('700 30px Changa')):Promise.resolve()).then(draw,draw);
+setStatus(products.length?`${toFa(products.length)} محصول ذخیره‌شده روی این دستگاه`:"هنوز محصولی ذخیره نشده؛ نمونه رو ببین و اولین محصولت رو بساز.");
+
+/* ---------- پشتیبان (انتقال بین دستگاه‌ها) ---------- */
+$('backupOut').onclick=async()=>{
+  if(!products.length){setStatus("هنوز محصولی ذخیره نشده.",true);return;}
+  const d=new Date().toISOString().slice(0,10);
+  const r=await saveFile(`zigorat-sizes-backup-${d}.json`,JSON.stringify({app:"zigorat-size-guide",v:1,products},null,1),"application/json");
+  setStatus(r==='cancelled'?"لغو شد.":r==='failed'?"فایل ساخته نشد.":"فایل پشتیبان آماده شد؛ نگهش دار یا برای خودت بفرست.",r==='failed');
+};
+$('backupIn').onchange=async e=>{
+  const f=e.target.files[0]; e.target.value=""; if(!f)return;
+  try{const j=JSON.parse(await f.text()); const list=Array.isArray(j)?j:j.products; if(!Array.isArray(list))throw 0;
+    let added=0,updated=0;
+    list.forEach(p=>{if(!p||!p.id||!p.sizes)return; const i=products.findIndex(x=>x.id===p.id);
+      if(i<0){products.push(p);added++;} else if((p.updatedAt||0)>(products[i].updatedAt||0)){products[i]=p;updated++;}});
+    products.sort((a,b)=>(b.updatedAt||0)-(a.updatedAt||0)); lsSave();
+    if(cur.id==="example"&&products[0])cur=structuredClone(products[0]); dirty=false; renderAll();
+    setStatus(`${toFa(added)} محصول جدید اضافه شد${updated?`، ${toFa(updated)} محصول به‌روز شد`:""}.`);
+  }catch{setStatus("این فایل، پشتیبان راهنمای سایز نیست.",true);}
+};
+</script>
+
+<script>if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});</script>
+</body>
+</html>

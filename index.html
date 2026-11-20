@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f0f11">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="زیگورات">
+<title>ابزارهای زیگورات</title>
+<style>
+@font-face{font-family:'Vazirmatn';font-weight:100 900;font-display:swap;src:url(vazirmatn.ttf) format('truetype')}
+:root{--paper:#f6f5f2;--ink:#0f0f11;--muted:#6b6a70;--line:#dddbd6;--red:#e2232d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;
+  padding:max(28px,env(safe-area-inset-top,0px)) max(18px,env(safe-area-inset-right,0px)) max(40px,env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px))}
+.wrap{max-width:520px;margin:0 auto;display:grid;gap:14px}
+header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+header img{width:52px;height:52px;border-radius:14px}
+h1{margin:0;font-size:24px;font-weight:900}
+h1 i{display:inline-block;width:.38em;height:.38em;border-radius:50%;background:var(--red);margin-inline-start:.2em}
+header p{margin:0;color:var(--muted);font-size:13px}
+a.tool{display:grid;gap:4px;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px}
+a.tool b{font-size:19px;font-weight:900}
+a.tool span{font-size:13px;color:var(--muted);line-height:1.8}
+a.tool:active{transform:scale(.99)}
+.tip{font-size:13px;color:var(--muted);line-height:1.9;background:#fff;border:1px dashed var(--line);border-radius:14px;padding:12px 14px}
+.tip[hidden]{display:none}
+#net{font-size:12px;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><img src="apple-touch-icon.png" alt=""><div><h1>ابزارهای زیگورات<i></i></h1><p>همه‌چیز روی گوشی خودت؛ بدون نیاز به برنامهٔ دیگه</p></div></header>
+  <a class="tool" href="zigorat-cover-maker.html"><b>کاورساز</b><span>کاور ریلز، استوری محصول، پست، هایلایت، چالش و اعلام برنده</span></a>
+  <a class="tool" href="zigorat-size-guide.html"><b>راهنمای سایز</b><span>جدول سایز هر محصول، عکس استوری و پست، متن تلگرام، پیدا کردن سایز مشتری</span></a>
+  <p class="tip" id="tipIos" hidden>برای نصب روی آیفون: توی Safari دکمهٔ اشتراک ⬆️ رو بزن و «Add to Home Screen» رو انتخاب کن.</p>
+  <p class="tip" id="tipAnd" hidden>برای نصب روی اندروید: توی Chrome منوی ⋮ رو بزن و «Add to Home screen» یا «Install app» رو انتخاب کن.</p>
+  <p id="net"></p>
+</div>
+<script>
+const standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+if(!standalone){if(/iphone|ipad|ipod/i.test(navigator.userAgent))tipIos.hidden=false;else if(/android/i.test(navigator.userAgent))tipAnd.hidden=false;}
+if('serviceWorker' in navigator&&location.protocol.startsWith('http')){
+  navigator.serviceWorker.register('sw.js').then(()=>navigator.serviceWorker.ready).then(()=>{net.textContent='✓ آمادهٔ کار بدون اینترنت';}).catch(()=>{});
+}
+</script>
+</body>
+</html>
