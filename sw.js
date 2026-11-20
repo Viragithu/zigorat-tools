@@ -1,5 +1,5 @@
 // کار بدون اینترنت: همهٔ فایل‌ها یک بار ذخیره می‌شن. بعد از هر تغییر در فایل‌ها، عدد VERSION رو یکی بیشتر کن.
-const VERSION = 'zig-v2';
+const VERSION = 'zig-v3';
 const FILES = ['./', 'index.html', 'zigorat-cover-maker.html', 'zigorat-size-guide.html', 'manifest.webmanifest',
   'icon-192.png', 'icon-512.png', 'icon-maskable.png', 'apple-touch-icon.png',
   'baloo.ttf', 'changa.ttf', 'estedad.ttf', 'jomhuria.ttf', 'kufi.ttf', 'lalezar.ttf', 'markazi.ttf', 'messiri.ttf', 'reemkufi.ttf', 'ruqaa.ttf', 'sahel.ttf', 'shabnam.ttf', 'vazirmatn.ttf'];
