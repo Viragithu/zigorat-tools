@@ -224,7 +224,7 @@ const T={
  reel:{name:'کاور ریلز',W:1080,H:1920,photo:true,guides:['grid34','reelsafe','center'],
   fields:[FF(),...FB('white',30),F('hook','خط اول (هوک)','text','به غیر از لباسای ما آسمون لردگونم قشنگه'),F('e1','ایموجی خط اول','emoji','👀'),F('line2','خط دوم خاکستری (اختیاری)','text',''),F('e2','ایموجی خط دوم','emoji',''),F('pin','برچسب قرمز','text','لردگان'),F('showpin','نمایش برچسب قرمز','check',true),F('ty','جای کادر متن (بالا ↔ پایین)','range',1490,{min:420,max:1680})]},
  story:{name:'استوری عکس',W:1080,H:1920,photo:false,cells:true,guides:['storysafe','center'],
-  fields:[F('layout','چیدمان عکس‌ها','layout','one'),F('gap','فاصلهٔ عکس‌ها','select','باریک',{options:['بدون فاصله','باریک','پهن']}),F('bg','رنگ پس‌زمینه و فاصله‌ها','select','سفید',{options:['سفید','مشکی','قرمز','کاغذی']}),FF(),F('lines','متن روی عکس (هر خط یک سطر؛ خالی = بدون متن)','area','کالکشن پاییزه رسید'),F('e1','ایموجی آخر','emoji','🍂'),F('sub','خط کوچک زیر کادر (اختیاری)','text','سایز و قیمت: دایرکت'),...FB('white',30),F('pin','برچسب قرمز','text','لردگان'),F('showpin','نمایش برچسب قرمز','check',false),F('ty','جای کادر متن (بالا ↔ پایین)','range',1500,{min:300,max:1700})]},
+  fields:[F('layout','چیدمان عکس‌ها','layout','one'),F('gap2','کادر دور عکس','select','بدون فاصله',{options:['بدون فاصله','باریک','پهن']}),F('bg','رنگ پس‌زمینه و فاصله‌ها','select','سفید',{options:['سفید','مشکی','قرمز','کاغذی']}),FF(),F('lines','متن روی عکس (هر خط یک سطر؛ خالی = بدون متن)','area','کالکشن پاییزه رسید'),F('e1','ایموجی آخر','emoji','🍂'),F('sub','خط کوچک زیر کادر (اختیاری)','text','سایز و قیمت: دایرکت'),...FB('white',30),F('pin','برچسب قرمز','text','لردگان'),F('showpin','نمایش برچسب قرمز','check',false),F('ty','جای کادر متن (بالا ↔ پایین)','range',1500,{min:300,max:1700})]},
  tip:{name:'ترفند استایل',W:1080,H:1920,photo:false,guides:['storysafe','center'],
   fields:[FF(),F('n','شماره','number',10),F('l1','تیتر خط اول','text','کفش سفید'),F('l2','تیتر خط دوم','text','با همه‌چی میاد'),F('desc','یک خط توضیح','text','اگه شک داری چی بپوشی، کفش سفید ریسکش از همه کمتره'),F('pos','جای ز بزرگ پشت متن','select','الف',{options:['الف','ب','ج']})]},
  care:{name:'مراقبت از لباس',W:1080,H:1920,photo:false,guides:['storysafe','center'],
@@ -322,7 +322,7 @@ function wrap(ctx,text,maxw){const words=text.split(' ');const lines=[];let cur=
 const LAYOUTS={one:['یک عکس',[[0,0,1,1]]],v2:['بالا/پایین',[[0,0,1,.5],[0,.5,1,.5]]],h2:['کنار هم',[[0,0,.5,1],[.5,0,.5,1]]],v3:['سه ردیف',[[0,0,1,1/3],[0,1/3,1,1/3],[0,2/3,1,1/3]]],
   t3:['یکی بزرگ',[[0,0,1,.6],[0,.6,.5,.4],[.5,.6,.5,.4]]],b3:['دوتا بالا',[[0,0,.5,.4],[.5,0,.5,.4],[0,.4,1,.6]]],g4:['چهارتایی',[[0,0,.5,.5],[.5,0,.5,.5],[0,.5,.5,.5],[.5,.5,.5,.5]]],s3:['سه ستون',[[0,0,1/3,1],[1/3,0,1/3,1],[2/3,0,1/3,1]]]};
 const GAPS={'بدون فاصله':0,'باریک':14,'پهن':36};
-function storyRects(W,H){const L=(LAYOUTS[v('layout')]||LAYOUTS.one)[1],g=GAPS[v('gap')]??14,m=g,Wi=W-2*m,Hi=H-2*m;
+function storyRects(W,H){const L=(LAYOUTS[v('layout')]||LAYOUTS.one)[1],g=GAPS[v('gap2')]??0,m=g,Wi=W-2*m,Hi=H-2*m;
   return L.map(([fx,fy,fw,fh])=>{const e=0.001;let x=m+fx*Wi,y=m+fy*Hi,w=fw*Wi,h=fh*Hi;if(fx>e){x+=g/2;w-=g/2;}if(fx+fw<1-e)w-=g/2;if(fy>e){y+=g/2;h-=g/2;}if(fy+fh<1-e)h-=g/2;return [x,y,w,h];});}
 function isStory(){return !!tpl().cells;}
 function cellSrc(cl){ // نور و رنگ خودکار روی هر عکس جدا
@@ -385,7 +385,7 @@ const DRAW={
  story(ctx,W,H){
   const bg=v('bg')||'سفید',dark=bg==='مشکی'||bg==='قرمز';
   if(bg==='کاغذی')paper(ctx,W,H); else {ctx.fillStyle={'مشکی':BLK,'سفید':'#ffffff','قرمز':RED}[bg]||'#fff';ctx.fillRect(0,0,W,H);}
-  const R=storyRects(W,H),rad=(GAPS[v('gap')]??14)>0?24:0;
+  const R=storyRects(W,H),rad=(GAPS[v('gap2')]??0)>0?24:0;
   R.forEach(([x,y,w,h],i)=>{const cl=st.cells[i];ctx.save();rr(ctx,x,y,w,h,rad);ctx.clip();
     if(cl&&cl.img){const src=cellSrc(cl),g=fitG(cl.iw,cl.ih,w,h,cl.zoom,cl.cx,cl.cy);if(!covers(g,w,h))coverBg(ctx,cl.tiny,x,y,w,h);ctx.drawImage(src,x-g.x0,y-g.y0,g.dw,g.dh);}
     else{ctx.fillStyle=dark?'rgb(48,48,52)':'rgb(232,231,227)';ctx.fillRect(x,y,w,h);
